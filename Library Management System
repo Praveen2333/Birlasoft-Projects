@@ -45,8 +45,12 @@ namespace ConsoleApp1
         static BorrowNewspaper borrown = new BorrowNewspaper();
 
      
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
+           demo1();
+        }
+        public static void demo1()
+            {
             Console.WriteLine("--------Choose The options ( (a) / (b) / (c) )--------");
 
             Console.WriteLine("\nType-----(a).Books\n" + "Type-----(b).Newspaper\n"+"Type-----(c).Close\n");
@@ -71,8 +75,9 @@ namespace ConsoleApp1
                     Console.WriteLine("---Thank you---");
                     break;
             }
-
         }
+
+        
         
        public  static void demo()
         {
@@ -99,6 +104,7 @@ namespace ConsoleApp1
                 case 'c':
                     Console.WriteLine("Thank you");
                     Console.WriteLine("-------------------------------------------------------");
+                    demo1();
                     break;
                  }
         }
@@ -336,7 +342,7 @@ namespace ConsoleApp1
             {
                 newspaperList.RemoveAt(Del - 1);
                 Console.WriteLine("Newspaper id - {0} has been deleted", Del);
-                 Remove_newspaper+=1;
+                 Remove_newspaper--;
             }
             else
             {
@@ -409,9 +415,7 @@ namespace ConsoleApp1
             borrow.borrowBookId = int.Parse(Console.ReadLine());
             Console.Write("Number of Books : ");
             borrow.borrowCount = int.Parse(Console.ReadLine());
-            // borrow.borrowDate = DateTime.Now;
-            // Console.WriteLine("Date - {0} and Time - {1}", borrow.borrowDate.ToShortDateString(), borrow.borrowDate.ToShortTimeString());
-    
+         
             if (bookList.Exists(m => m.bookId == borrow.borrowBookId))
             {
                 foreach (Book searchId in bookList)
@@ -448,9 +452,6 @@ namespace ConsoleApp1
             borrown.borrowNewspaperId = int.Parse(Console.ReadLine());
             Console.Write("Number of Newspapers : ");
             borrown.borrowCount = int.Parse(Console.ReadLine());
-            // borrown.borrowDate = DateTime.Now;
-            // // Console.WriteLine("Date - {0} and Time - {1}", borrown.borrowDate.ToShortDateString(), borrown.borrowDate.ToShortTimeString());
-
             if (newspaperList.Exists(m => m.newspaperId == borrown.borrowNewspaperId))
             {
                 foreach (Newspaper searchId in newspaperList)
@@ -556,6 +557,5 @@ namespace ConsoleApp1
                 demon();
             }
         }
-
    }
-}
+ }
