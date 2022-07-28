@@ -285,18 +285,23 @@ namespace ConsoleApp1
             book.x = book.bookCount = int.Parse(Console.ReadLine());
             bookList.Add(book);
             Console.WriteLine("Book Added Successfully");
+           for(int i=0;i<bookList.Count;i++)
+              {
+                 Console.WriteLine(bookList[i]);
+              }
             Console.WriteLine("-------------------------------------------------------");
             demo();
         }
         
         public static void GetNewspaper()
         {
-            Console.WriteLine("Newspaper Id:{0}", newspaper.newspaperId = newspaperList.Count + 1);
-            Console.Write("newspaper Name:");
+            Console.Write("Newspaper Id:");
+            newspaper.newspaperId = int.Parse(Console.ReadLine());
             
+            Console.Write("Newspaper Name: ");
             newspaper.newspaperName = Console.ReadLine();
-            Console.Write("Newspaper Price:");
             
+            Console.Write("Newspaper Price:");
             newspaper.newspaperPrice = int.Parse(Console.ReadLine());
             Console.Write("Number of Newspaper:");
             
@@ -318,8 +323,11 @@ namespace ConsoleApp1
             if (bookList.Exists(m => m.bookId == Del))
             {
                 bookList.RemoveAt(Del - 1);
+                
                 Console.WriteLine("Book id - {0} has been deleted", Del);
                  Remove_book+=1;
+                 Console.WriteLine("-------------------------------------------------------");
+                 demo();
             }
             else
             {
@@ -342,6 +350,8 @@ namespace ConsoleApp1
             {
                 newspaperList.RemoveAt(Del - 1);
                 Console.WriteLine("Newspaper id - {0} has been deleted", Del);
+                 Console.WriteLine("-------------------------------------------------------");
+                 demon();
                  Remove_newspaper--;
             }
             else
@@ -358,7 +368,7 @@ namespace ConsoleApp1
         {
             Console.Write("Search by BOOK id :");
             int find = int.Parse(Console.ReadLine());
-            
+    
             if (bookList.Exists(m => m.bookId == find))
             {
                 foreach (Book searchId in bookList)
@@ -369,10 +379,14 @@ namespace ConsoleApp1
                         "Book name :{1}\n" +
                         "Book price :{2}\n" +
                         "Book Count :{3}", searchId.bookId, searchId.bookName, searchId.bookPrice, searchId.bookCount);
+                          Console.WriteLine("Book Find Successfully");
+                          Console.WriteLine("-------------------------------------------------------");
+                          demo();
+                    
                     }
                 }
             }
-            else
+            else 
             {
                 Console.WriteLine("Book id {0} not found", find);
                 Console.WriteLine("-------------------------------------------------------");
@@ -394,14 +408,18 @@ namespace ConsoleApp1
                         "Newspaper name :{1}\n" +
                         "Newspaper price :{2}\n" +
                         "Newspaper Count :{3}", searchId.newspaperId, searchId.newspaperName, searchId.newspaperPrice, searchId.newspaperCount);
+                          Console.WriteLine("Newspaper Find Successfully");
+                          Console.WriteLine("-------------------------------------------------------");
+                          demon();
+                        
                     }
                 }
             }
-            else
+            else 
             {
                 Console.WriteLine("Newspaper id {0} not found", find);
                 Console.WriteLine("-------------------------------------------------------");
-                demo();
+                demon();
             }
         }
 
@@ -431,6 +449,7 @@ namespace ConsoleApp1
                     else
                     {
                         Console.WriteLine("Only {0} books are found", searchId.bookCount);
+                        demo();
                         break;
                     }
                 }
@@ -445,8 +464,8 @@ namespace ConsoleApp1
         }
           public static void BorrowNewspaper()
         {
-            Console.Write("Name :");
-            borrown.userName = Console.ReadLine();
+             Console.Write("Enter User  Name :");
+             borrown.userName = Console.ReadLine();
 
             Console.Write("Newspaper id :");
             borrown.borrowNewspaperId = int.Parse(Console.ReadLine());
@@ -461,14 +480,18 @@ namespace ConsoleApp1
                         if (searchId.newspaperId == borrown.borrowNewspaperId)
                         {
                             searchId.newspaperCount = searchId.newspaperCount - borrown.borrowCount;
+                            Console.WriteLine("Successfully Borrowed");
+                            demon();
                             break;
                         }
                     }
-                    else
-                    {
+                     else
+                       {
                         Console.WriteLine("Only {0} newspaper are found", searchId.newspaperCount);
+                        demon();
                         break;
-                    }
+                        }
+                    
                 }
             }
             else
@@ -501,7 +524,9 @@ namespace ConsoleApp1
                         if (addReturnBookCount.bookId == returnId)
                         {
                             addReturnBookCount.bookCount = addReturnBookCount.bookCount + returnCount;
-                            break;
+                            Console.WriteLine("-------------------------------------------------------");
+                            demo();
+                            
                         }
                     }
                     else
@@ -540,7 +565,8 @@ namespace ConsoleApp1
                         if (addReturnNewspaperCount.newspaperId == returnId)
                         {
                             addReturnNewspaperCount.newspaperCount = addReturnNewspaperCount.newspaperCount + returnCount;
-                            break;
+                            Console.WriteLine("-------------------------------------------------------");
+                            demon();
                         }
                     }
                     else
