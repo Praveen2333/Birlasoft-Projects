@@ -8,17 +8,19 @@ namespace ConsoleApp1
     {
         public int bookId;
         public string bookName;
+        public int data;
         public int bookPrice;
         public int bookCount;
-        public int x;
+       
     }
     class Newspaper
     {
         public int newspaperId;
         public string newspaperName;
+        public int data;
         public int newspaperPrice;
         public int newspaperCount;
-        public int x;
+       
     }
     class BorrowDetails
     {
@@ -282,7 +284,7 @@ namespace ConsoleApp1
             Console.Write("Book Price:");
             book.bookPrice = int.Parse(Console.ReadLine());
             Console.Write("Number of Books:");
-            book.x = book.bookCount = int.Parse(Console.ReadLine());
+            book.data = book.bookCount = int.Parse(Console.ReadLine());
             bookList.Add(book);
             Console.WriteLine("Book Added Successfully");
            for(int i=0;i<bookList.Count;i++)
@@ -305,7 +307,7 @@ namespace ConsoleApp1
             newspaper.newspaperPrice = int.Parse(Console.ReadLine());
             Console.Write("Number of Newspaper:");
             
-            newspaper.x = newspaper.newspaperCount = int.Parse(Console.ReadLine());
+            newspaper.data = newspaper.newspaperCount = int.Parse(Console.ReadLine());
             newspaperList.Add(newspaper);
             
             Console.WriteLine("Newspaper Added Successfully");
@@ -519,7 +521,7 @@ namespace ConsoleApp1
             {
                 foreach (Book addReturnBookCount in bookList)
                 {
-                    if (addReturnBookCount.x >= returnCount + addReturnBookCount.bookCount)
+                    if (addReturnBookCount.data >= returnCount + addReturnBookCount.bookCount)
                     {
                         if (addReturnBookCount.bookId == returnId)
                         {
@@ -560,7 +562,7 @@ namespace ConsoleApp1
             {
                 foreach (Newspaper addReturnNewspaperCount in newspaperList)
                 {
-                    if (addReturnNewspaperCount.x >= returnCount + addReturnNewspaperCount.newspaperCount)
+                    if (addReturnNewspaperCount.data >= returnCount + addReturnNewspaperCount.newspaperCount)
                     {
                         if (addReturnNewspaperCount.newspaperId == returnId)
                         {
